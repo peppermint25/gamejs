@@ -1,16 +1,11 @@
-#runway
-{
-    width:fit-content;
-    height:fit-content;
-    background: url("runway.jpg") bottom repeat-x;
-
-}
 #plane
 {
     position: absolute;
     top: 750px;
     left: 300px;
-    height: 100px;
+    height: 50px;
+    z-index: 1;
+
 }
 body{
     caret-color: transparent;
@@ -22,5 +17,28 @@ body{
     background-image: url("runway.jpg");
     background-size: auto;
     background-repeat: repeat-x;
-    background-position:bottom;
+    background-position:bottom left;
+}
+
+.enemy{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+.ring{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+}
+
+.points{
+    position: absolute;
+    top: 64.5%;
+    left: 0.7%;
+    font-weight: bold;
+    font-size:larger;
+    font-style: italic;
+    color: skyblue;
+    background-color: bisque;
 }
