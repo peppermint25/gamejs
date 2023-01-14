@@ -12,18 +12,36 @@ body{
     margin: 0px;
 }
 #airport{
-    width: 100%;
+    width: 1050px;
     height: 809px;
     background-image: url("runway.jpg");
     background-size: auto;
-    background-repeat: repeat-x;
-    background-position:bottom left;
+    background-position: center;
+    margin: auto;
 }
 
-.enemy{
+.enemy-area{
+    margin: auto;
     position: absolute;
     width: 80px;
     height: 80px;
+}
+
+.enemy{
+    width: 100%;
+}
+
+.fail{
+    width: 250%;
+    position: absolute;
+    z-index: 2;
+    top: -100px;
+    left: -70px;
+}
+
+.game-win{
+    position: absolute;
+    object-fit: cover;
 }
 
 .ring{
