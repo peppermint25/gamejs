@@ -1,11 +1,26 @@
 $(document).ready(function(){
   var  PlaneY =650, speedY = 0, speedX = 0, minPlaneY = ($("#airport").height()-100) , maxPlaneX = ($("#airport").width()-($("#plane").width())+20);
-  var img = "plane-right.png";
+  // var img = "plane-right.png";
   var rightPress = false, leftPress = false;
   var ring_count = 0, rings = 0;
-  var mapwidth = $("#airport").width();
+  let start, end, time, keypress;
+  // var margin;
+
+  var margin = parseFloat($("#airport").css("margin-left"));
+  console.log(margin, "aaaa");
+  
+  window.onresize = function(){ location.reload(); }
+
+  // setInterval(function() {
+  //   var margin = parseFloat($("#airport").css("margin"))
+  //   console.log(margin, "aaaa");
+
+  // }, 300)
+
+  
+  // var mapwidth = $("#airport").width();
   var plane_length = $("#plane").width(), plane_height = $("#plane").height();
-  var PlaneX = margin + 300;
+  var PlaneX = 300 + margin;
   var map = [
     ".$..#.#..........$.#",
     "............$.....#.",
@@ -33,23 +48,17 @@ $(document).ready(function(){
 
   });
 
-  var margin = $("#airport").css("margin-left");
-
   function drawBlock(x,y){
     var el = $("<div class='enemy-area'><img class='enemy' src='enemy.png'></div>");
-    $("#airport").append(el);
-    var xpoint =  margin;
-    console.log(xpoint);
-
-    xpoint += x*50;
-    console.log(xpoint);
-    el.css({top: y*100 , left: xpoint})
+    $("#airport").append(el); 
+    console.log(margin);
+    el.css({top: y*100 , left: margin + x*50})
   }
 
   function drawRing(x,y){
     var el = $("<img class='ring' src='ring.gif'>");
     $("#airport").append(el);
-    el.css({top: y*100, left:x*50})
+    el.css({top: y*100, left: margin + x*50})
   }
 
   setInterval(function(){
@@ -89,19 +98,19 @@ $(document).ready(function(){
 
     PlaneY = Math.min(minPlaneY, PlaneY);
 
-    PlaneX = Math.max(0, PlaneX);
+    PlaneX = Math.max(margin, PlaneX);
 
-    PlaneX = Math.min(maxPlaneX, PlaneX);
+    PlaneX = Math.min(maxPlaneX + margin, PlaneX);
 
     if (PlaneY >= minPlaneY){
          speedY += 1.5;
     }else if(PlaneY <= 0){
       speedY = -3;
     }
-    if (PlaneX <= 0){
+    if (PlaneX <= margin){
       speedX = 3;
       changeImage1();
-    }else if(PlaneX >= maxPlaneX){
+    }else if(PlaneX >= maxPlaneX + margin){
       speedX = -3;
       changeImage();
     }
@@ -129,6 +138,8 @@ $(document).ready(function(){
           ring_count++;
           $("#ringcount").text(ring_count);
           if(ring_count == rings){
+            speedX = 0;
+            speedY = 0;
             gamewin();
           }
         }
@@ -153,18 +164,12 @@ $(document).ready(function(){
         }
     })
     
-
   }, 30);
-
-  
-
-
- 
 
 function gamewin(){
   console.log("game complete")
   var el = $("<p>You have completed the game</p>");
-  var win = $("<img class='game-win' src='win.gif'");
+  var win = $("<img class='game-win' src='win.gif'>");
     $("body").append(el);
     $(".airport").append(win);
 }
@@ -172,6 +177,16 @@ function gamewin(){
 function gamelose(){
 
 }
+
+// function startTime(){
+//   start = new Date();
+// }
+
+// function endTime(){
+//   end = new Date();
+//   time = end - start;
+//   return time;
+// }
 
 
   window.addEventListener("keydown", keysPressed, false);

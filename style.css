@@ -60,3 +60,14 @@ body{
     color: skyblue;
     background-color: bisque;
 }
+
+.refresh{
+    top: 65%;
+    position: absolute;
+    left: 10%;
+    color: red;
+}
+
+.game-win{
+    z-index: 3;
+}
