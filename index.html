@@ -13,13 +13,31 @@
     </head>
     <body onkeydown="(event.keyCode)" onkeyup="(event.keyCode)">
         <div id="airport">
-            <div class="points">points: 
+            <div class = "start-game">
+                <h1 class = "start-heading">
+                    Do you want to start the game?
+                </h1>
+                <p class ="start-text" >
+                    Playing on map <span id="mapnumber"></span>
+                </p>
+                <button id ="start-button">Start game</button>
+            </div>
+            <div class="points"> 
                 <span id="ringcount">
                     0
                 </span>
             </div>
         </div>
-        <button class="refresh" onClick="window.location.reload();">Restart game</button>
+        <div class="map-div">
+            Playing on map number <span id="mapnumber"></span> 
+
+        </div>
+        <div class="stopwatch">
+            <span id="gametime">
+
+            </span>
+        </div>
+        <!-- <button class="refresh" onClick="window.location.reload();">Restart game</button> -->
         <img src="plane-right.png" id="plane">
     </body>
 </html>

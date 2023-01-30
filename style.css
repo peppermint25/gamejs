@@ -3,25 +3,31 @@
     position: absolute;
     top: 750px;
     left: 300px;
-    height: 50px;
+    height: 40px;
     z-index: 1;
-
 }
 body{
     caret-color: transparent;
     margin: 0px;
 }
+
+button{
+    border: none;
+}
+
 #airport{
-    width: 1050px;
+    /* width: 1050px; */
+    display: flex;
     height: 809px;
     background-image: url("runway.jpg");
     background-size: auto;
     background-position: center;
-    margin: auto;
+    /* padding: 0 10% 0 10% ; */
+    position: relative;
 }
 
 .enemy-area{
-    margin: auto;
+    /* margin: auto; */
     position: absolute;
     width: 80px;
     height: 80px;
@@ -52,22 +58,93 @@ body{
 
 .points{
     position: absolute;
-    top: 64.5%;
-    left: 0.7%;
     font-weight: bold;
-    font-size:larger;
     font-style: italic;
-    color: skyblue;
-    background-color: bisque;
+    color: rgba(162, 161, 161, 0.477);
+    background-color: rgba(167, 167, 167, 0);
+    opacity: 0.4;
+    width: 100%;
+    /* height: 100%; */
+    margin: auto auto auto auto;
+    display: table;
+}
+
+#ringcount {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 500px;
+    z-index: 3;
 }
 
 .refresh{
-    top: 65%;
+    /* display: table-cell; */
+    /* vertical-align: bottom; */
+    /* position: absolute; */
+    /* text-align: center; */
+    opacity: 0.4;
+    /* width: 1050px;
+    height: 809px; */
+    width: 100%;
+    background-color: #e7e7e7; 
+    color: rgb(0, 0, 0);
+    z-index: 4;
+}
+
+#opaque {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    display: none;
+    background-color: black;
+    opacity: 0.3; 
+}
+
+* html #opaque {
     position: absolute;
-    left: 10%;
-    color: red;
 }
 
 .game-win{
-    z-index: 3;
+    position: absolute;
+    background-image: url("win1.gif");
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 4;
+}
+
+.map-div{
+    text-align: center;
+    position: absolute;
+    font-weight: 700;
+    color: #dca50c;
+    font-size: 28px;
+    background-color: rgb(255, 0, 0);
+    text-shadow: 0 0 1px white;
+}
+
+.start-game {
+    position: absolute;
+    display: table;
+    background-color: tan;
+    opacity: 0.5;
+    height: 50%;
+    margin: auto;
+    left: 25%;
+    z-index: 5;
+}
+
+.start-game button {
+    border: 1px solid black;
+    background-color: red;
+}
+
+.stopwatch {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    z-index: 8;
 }
