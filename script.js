@@ -1,18 +1,13 @@
 $(document).ready(function(){
 var  PlaneY =650, speedY = 0, speedX = 0, minPlaneY = ($("#airport").height()-100) , maxPlaneX = ($("#airport").width()-($("#plane").width())+20);
-  // var img = "plane-right.png";
 var rightPress = false, leftPress = false;
 var ring_count = 0, rings = 0;
-
 var margin = parseFloat($("#airport").css("margin-left"));  
-
 var plane_length = $("#plane").width(), plane_height = $("#plane").height();
-
 var mapnumber, map;
 
 function selectMap (){
     var mapselector = Math.random();
-	// console.log(mapselector);
     var selectedMap;
 
     switch(true){
@@ -61,7 +56,6 @@ function selectMap (){
 var result = selectMap();
 map = result.selectedMap;
 mapnumber = result.mapnumber;
-// console.log(mapnumber, "mapes nummurs")
 
 $("#mapnumber").text(mapnumber); 
 $("#mapnumber").text(mapnumber); 
@@ -73,21 +67,8 @@ var mapheight = 1 /map.length;
 
 var gameplay = false;
 
-// var gameplay = true;
-
-// $("#start-button").onclick = startgame();
-
 var starttime, newtime, time;
 
-// if (gameplay == false){
-// 	$(".map-div").hide();
-// }
-
-// if (gameplay == true){
-// 	console.log("gameplay is true")
-// 	playgame();
-// 	$(".map-div").show();
-// }
 
 function startgame() {
 	gameplay = true;
@@ -100,14 +81,6 @@ $("#start-button").click(function(){
 	console.log("poga nospiesta")
 	startgame();
 })
-
-// setInterval(function() {
-	
-// }, 30)
-
-// console.log(gameplay);
-
-
 
 function playgame() {
 	$(function () {
@@ -252,8 +225,6 @@ function playgame() {
 		time = newtime - starttime;
 		time = (time)/1000;
 		console.log(time, "time");
-		// var gametime = $("<div><span id='gametime'></span></div>");
-		// $("body").append(gametime);
 		$("#gametime").text(time)
 	    
 	  }, 30);
