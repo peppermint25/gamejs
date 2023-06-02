@@ -78,7 +78,6 @@ function startgame() {
 
 $("#start-button").click(function(){
 	$(".start-game").hide();
-	console.log("poga nospiesta")
 	startgame();
 })
 
@@ -102,10 +101,7 @@ function playgame() {
 	  function drawBlock(x,y){
 	    var el = $("<div class='enemy-area'><img class='enemy' src='enemy.png'></div>");
 	    $("#airport").append(el); 
-	    // console.log(x*mapunit*100, y*mapheight*100);
 	    el.css({top: (y*mapheight*100).toString()+"%" , left: margin + (x*mapunit*100).toString()+"%"})
-    //   el.css({top: (y*mapheight*100).toString()+"fr" , left: margin + (x*mapunit*100).toString()+"fr"})
-
 	  }
 	
 	  function drawRing(x,y){
@@ -124,11 +120,9 @@ function playgame() {
 	
 	    if(leftPress == true){
 	      changeImage();
-	    }
-	
-	    if(rightPress == true){
-	      changeImage1();
-	    }
+	    }else if (rightPress == true){
+			changeImage1();
+		}
 	
 	    function changeImage(){
 	      if(document.getElementById("plane").src = "plane-right.png"){
@@ -161,6 +155,7 @@ function playgame() {
 	    }else if(PlaneY <= 0){
 	      speedY = -3;
 	    }
+		console.log("Speed: " + speedY);
 	    if (PlaneX <= margin){
 	      speedX = 3;
 	      changeImage1();
